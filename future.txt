@@ -1,0 +1,16 @@
+-	PNotSet(set) = PExcept(PAny() - PSet(set))
+-	File scanner, takes input from an ascii file
+-	Stream scanner, takes any inputstream
+-	Factory class (perhaps implement in POBS)
+-	PParse class, exposes convenient parse() methods
+-	Alternatives set classes, other name for "Alternatives"?
+-	Not parser;	PNot(p) -> PExcept(PAny(), p);
+-	Comment parser (/* blah */)
+-	Nested comment parser (/* /* */ */)
+-	Single line comment parser (// ... EOL)
+-	Epsilon parser
+-	SequentialOr parser
+-	Permutation parser
+-	Wildcard parser
+-	Xor parser
+-	Refactoring parser

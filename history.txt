@@ -1,0 +1,47 @@
+-Added Preincrement/-decrement to NanoC.
+-Renamed PPointer to PObjectPointer.
+-Added PParserPointer, based on PObjectPointer.
+-Fixed PSequence to have skipper also match all data after the the last parser in the array.
+-Added PTextScanner.
+-Added example NanoC, a small C interpreter.
+-Modified interface PErrorHandler and PParser in order to handle also semantic errors.
+-Removed constants from pobs.utility.POBS.
+-Renamed PWrapper to PBind.
+-Added new unit tests.
+-Add factory methods to POBS.
+-Removed POnMatch parser.
+-Custom type for the alternatives directive.
+-Renamed pobs.directive package to pobs.control.
+-Implemented controls for alternatives directive.
+-Created pobs.errorhandler package for PDefaultErrorHandler.
+-Renamed PDirectiveControl to PControl and moved to pobs package.
+
+v0.2.0
+-New Directive mechanism based on Strategy pattern.
+-Added PLineScanner.
+-Added pobs.utility package and move POBS class into it.
+-Implemented PTarget.
+-Implemented PContext.
+-Implemented new PParser.
+-Renamed PObject.parse() to PObject.process();
+-Renamed PParser to PObject.
+-Implemented basic reverse scanner PReverseScanner.
+-Implemented a TestCaseParser class to ease parser testing.
+-Changed several parser test to use TestCaseParser.
+-Changed the SimpleCalc example to use the SolverVar RPN stack solver.
+-Fixed but in SolverVar example; now handles assignments with expressions correctly. Removing unneeded nodes was the solution.
+-Added function support to SolverVar and SimpleCalc; min() and max() now supported.
+-Fixed bug in POr. When using FIRST alternatives directive, actions linked to parsers which match input after the first match is encountered are executed as well. Special FIRST case in POr fixes this problem and increases performance as a side effect. PToken does not have this problem.
+-Fixed bug in PExcept. Length of right-side match returned should have been zero always.
+-Added testcases for PLetter, PWhitespace, PEOL and PLimit parsers.
+-Added tests for parsing at a non-zero beginning point for all testcases.
+
+v0.1.2
+-Complete comments
+-More testcases overall
+
+v0.1.1
+-Various bugfixes
+
+v0.1.0
+-Initial release
