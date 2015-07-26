@@ -7,7 +7,7 @@ package pobs.action;
 /**
  * @author Martijn W. van der Lee
  */
-abstract public class PNumber implements Comparable {
+abstract public class PNumber implements Comparable<Object> {
     protected Number value;
 
     /**
@@ -73,7 +73,7 @@ abstract public class PNumber implements Comparable {
 
     public pobs.PAction setAction(final PNumber c) {
         return new pobs.PAction() {
-            final PNumber constant = c;
+            //final PNumber constant = c;
 
             public void perform(pobs.PTarget target, String data) {
                 value = getNumber();

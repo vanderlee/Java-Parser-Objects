@@ -9,12 +9,18 @@ import java.util.Collection;
 /**
  * @author Martijn W. van der Lee
  */
-public interface PCollection extends Collection {
+public interface PCollection<Object> extends Collection<Object> {
     /**
      * @see pobs.action.PCollection
      */
     public pobs.PAction addAction();
-public pobs.PAction addAction(final Object o);
+    /**
+     * @see pobs.action.PCollection
+     */
+    public pobs.PAction addAction(final Object o);
+    /**
+     * @see pobs.action.PCollection
+     */
     public pobs.PAction addAllAction(PCollection c);
     /**
      * @see pobs.action.PCollection

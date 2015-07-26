@@ -10,8 +10,8 @@ import java.util.AbstractCollection;
 /**
  * @author Martijn W. van der Lee
  */
-public abstract class PAbstractCollection extends AbstractCollection implements
-        PCollection {
+public abstract class PAbstractCollection extends AbstractCollection<Object> implements
+        PCollection<Object> {
 
     /**
      * @see pobs.action.PCollection
@@ -39,7 +39,7 @@ public abstract class PAbstractCollection extends AbstractCollection implements
             final PCollection collection = c;
 
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = collection.iterator();
+                Iterator<Object> i = collection.iterator();
 
                 while (i.hasNext()) {
                     add(i.next());
@@ -54,7 +54,7 @@ public abstract class PAbstractCollection extends AbstractCollection implements
     public pobs.PAction clearAction() {
         return new pobs.PAction() {
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = iterator();
+                Iterator<Object> i = iterator();
 
                 while (i.hasNext()) {
                     i.next();
@@ -70,7 +70,7 @@ public abstract class PAbstractCollection extends AbstractCollection implements
     public pobs.PAction removeAction() {
         return new pobs.PAction() {
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = iterator();
+                Iterator<Object> i = iterator();
 
                 while (i.hasNext()) {
                     if (i.next().equals(data)) {
@@ -90,7 +90,7 @@ public abstract class PAbstractCollection extends AbstractCollection implements
             final Object object = o;
 
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = iterator();
+                Iterator<Object> i = iterator();
 
                 while (i.hasNext()) {
                     if (i.next().equals(object)) {
@@ -110,7 +110,7 @@ public abstract class PAbstractCollection extends AbstractCollection implements
             final PCollection collection = c;
 
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = collection.iterator();
+                Iterator<Object> i = collection.iterator();
 
                 while (i.hasNext()) {
                     if (contains(i.next())) {
@@ -129,7 +129,7 @@ public abstract class PAbstractCollection extends AbstractCollection implements
             final PCollection collection = c;
 
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = collection.iterator();
+                Iterator<Object> i = collection.iterator();
 
                 while (i.hasNext()) {
                     if (!contains(i.next())) {

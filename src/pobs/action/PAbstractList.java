@@ -64,7 +64,7 @@ public abstract class PAbstractList extends PAbstractCollection implements
 
             public void perform(pobs.PTarget target, String data) {
                 int pos = index;
-                Iterator i = collection.iterator();
+                Iterator<Object> i = collection.iterator();
 
                 while (i.hasNext()) {
                     addToContainer(pos++, i.next());
@@ -81,7 +81,7 @@ public abstract class PAbstractList extends PAbstractCollection implements
 
             public void perform(pobs.PTarget target, String data) {
                 int pos = index.intValue();
-                Iterator i = collection.iterator();
+                Iterator<Object> i = collection.iterator();
 
                 while (i.hasNext()) {
                     addToContainer(pos++, i.next());
@@ -103,7 +103,7 @@ public abstract class PAbstractList extends PAbstractCollection implements
             final int index = i;
 
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = iterator();
+                Iterator<Object> i = iterator();
 
                 int j = 1;
 
@@ -129,7 +129,7 @@ public abstract class PAbstractList extends PAbstractCollection implements
             final PNumber index = i;
 
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = iterator();
+                Iterator<Object> i = iterator();
 
                 int j = 1;
 
@@ -157,7 +157,7 @@ public abstract class PAbstractList extends PAbstractCollection implements
             final Object object = o;
 
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = iterator();
+                Iterator<Object> i = iterator();
 
                 int j = 1;
 
@@ -186,7 +186,7 @@ public abstract class PAbstractList extends PAbstractCollection implements
             final Object object = o;
 
             public void perform(pobs.PTarget target, String data) {
-                Iterator i = iterator();
+                Iterator<Object> i = iterator();
 
                 int j = 1;
 

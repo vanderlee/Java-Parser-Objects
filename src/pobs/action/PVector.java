@@ -18,7 +18,7 @@ import java.util.ListIterator;
  * @author Martijn W. van der Lee
  */
 public class PVector extends PAbstractList {
-    protected java.util.Vector vector;
+    protected java.util.Vector<Object> vector;
 
     /**
      * Insert the method's description here.
@@ -26,16 +26,16 @@ public class PVector extends PAbstractList {
     public PVector() {
         super();
 
-        vector = new java.util.Vector();
+        vector = new java.util.Vector<Object>();
     }
 
     /**
      * Insert the method's description here.
      */
-    public PVector(java.util.Collection c) {
+    public PVector(java.util.Collection<Object> c) {
         super();
 
-        this.vector = new java.util.Vector(c);
+        this.vector = new java.util.Vector<Object>(c);
     }
 
     /**
@@ -57,14 +57,14 @@ public class PVector extends PAbstractList {
      * 
      * @return java.util.Vector
      */
-    public java.util.Vector getCollection() {
+    public java.util.Vector<Object> getCollection() {
         return vector;
     }
 
     /**
      * @see pobs.action.PCollection
      */
-    public java.util.Iterator iterator() {
+    public java.util.Iterator<Object> iterator() {
         return vector.iterator();
     }
 
@@ -101,26 +101,6 @@ public class PVector extends PAbstractList {
         return vector.remove(o);
     }
 
-    public boolean addAll(Collection c) {
-        return vector.addAll(c);
-    }
-
-    public boolean containsAll(Collection c) {
-        return vector.containsAll(c);
-    }
-
-    public boolean removeAll(Collection c) {
-        return vector.removeAll(c);
-    }
-
-    public boolean retainAll(Collection c) {
-        return vector.retainAll(c);
-    }
-
-    public Object[] toArray(Object[] o) {
-        return toArray(o);
-    }
-
     public Object get(int i) {
         return vector.get(i);
     }
@@ -138,26 +118,52 @@ public class PVector extends PAbstractList {
     }
 
     public int lastIndexOf(Object o) {
-        return lastIndexOf(o);
+        return vector.lastIndexOf(o);
     }
 
-    public boolean addAll(int i, Collection c) {
-        return addAll(i, c);
-    }
-
-    public List subList(int fromIndex, int toIndex) {
+    public List<Object> subList(int fromIndex, int toIndex) {
         return vector.subList(fromIndex, toIndex);
     }
 
-    public ListIterator listIterator() {
+    public ListIterator<Object> listIterator() {
         return vector.listIterator();
     }
 
-    public ListIterator listIterator(int i) {
+    public ListIterator<Object> listIterator(int i) {
         return vector.listIterator(i);
     }
 
     public Object set(int i, Object o) {
         return vector.set(i, o);
     }
+
+	@Override
+	public boolean addAll(Collection<? extends Object> c) {
+		return vector.addAll(c);
+	}
+
+	@Override
+	public boolean addAll(int index, Collection<? extends Object> c) {
+		return vector.addAll(index, c);
+	}
+
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		return vector.containsAll(c);
+	}
+
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		return vector.removeAll(c);
+	}
+
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		return vector.retainAll(c);
+	}
+
+	@Override
+	public <T> T[] toArray(T[] a) {
+		return vector.toArray(a);
+	}
 }

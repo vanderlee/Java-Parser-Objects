@@ -9,4 +9,4 @@ import java.util.Set;
 /**
  * @author Martijn W. van der Lee
  */
-public interface PSet extends Set, PCollection {}
+public interface PSet extends Set<Object>, PCollection<Object> {}

@@ -29,8 +29,6 @@ public class PStack extends PVector {
 
     public pobs.PAction pushAction(final Object o) {
         return new pobs.PAction() {
-            final Object object = o;
-
             public void perform(pobs.PTarget target, String data) {
                 vector.add(o);
             }

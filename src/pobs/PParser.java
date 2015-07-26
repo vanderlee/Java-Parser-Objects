@@ -24,7 +24,7 @@ import java.util.Vector;
  * @author Franz-Josef Elmer
  */
 public abstract class PParser implements PObject {
-    private Vector controls = new Vector(1);
+    private Vector<PControl> controls = new Vector<PControl>(1);
 
     private String errorInfo;
 
@@ -77,7 +77,7 @@ public abstract class PParser implements PObject {
             result = parse(input, begin, context);
         } else {
             --level;
-            PControl control = (PControl) controls.elementAt(level);
+            PControl control = controls.elementAt(level);
             PDirective directive = context.getDirective();
             Object currentState = control.modifyState(directive);
             result = parse(input, begin, context, level);

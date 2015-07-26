@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author Martijn W. van der Lee
  */
-public interface PList extends List, PCollection {
+public interface PList extends List<Object>, PCollection<Object> {
 
     public pobs.PAction addAction(int index);
 

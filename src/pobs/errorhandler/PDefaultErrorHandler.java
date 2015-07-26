@@ -64,12 +64,11 @@ public class PDefaultErrorHandler implements PErrorHandler {
     	}
     }
     
-    private final Vector list = new Vector();
-    private final Vector semanticErrors = new Vector();
+    private final Vector<SyntaxErrorEntry> list = new Vector<SyntaxErrorEntry>();
+    private final Vector<SemanticError> semanticErrors = new Vector<SemanticError>();
     private final boolean showStackTrace;
 
     private long maxPosition;
-    private RuntimeException exception;
     
     
 	public PDefaultErrorHandler(boolean showStackTrace) {
@@ -108,7 +107,7 @@ public class PDefaultErrorHandler implements PErrorHandler {
 			  .append(": Expecting either ");
 		removeEntries();
 		for (int i = 0, n = list.size(); i < n; i++) {
-		    SyntaxErrorEntry errorEntry = (SyntaxErrorEntry) list.elementAt(i);
+		    SyntaxErrorEntry errorEntry = list.elementAt(i);
 		    String delim = "";
 		    if (i > 0) {
 		        if (i < n - 1) {
@@ -123,7 +122,7 @@ public class PDefaultErrorHandler implements PErrorHandler {
 
 	private void createSemanticErrorMessages(StringBuffer buffer, PScanner input) {
 		for (int i = 0, n = semanticErrors.size(); i < n; i++) {
-			SemanticError e = (SemanticError) semanticErrors.elementAt(i);
+			SemanticError e = semanticErrors.elementAt(i);
 			buffer.append("Error at ").append(renderPosition(e.position, input))
 				  .append(": ").append(e.exception.getMessage()).append("\n");
 			if (showStackTrace) {
@@ -140,9 +139,9 @@ public class PDefaultErrorHandler implements PErrorHandler {
      * already occured.
      */
     private void removeEntries() {
-    	Hashtable errorInfos = new Hashtable();
+    	Hashtable<String, String> errorInfos = new Hashtable<String, String>();
         for (int i = list.size() - 1; i >= 0; i--) {
-            SyntaxErrorEntry entry = (SyntaxErrorEntry) list.elementAt(i);
+            SyntaxErrorEntry entry = list.elementAt(i);
             if (entry.position < maxPosition || entry.info == null) {
                 list.removeElementAt(i);
             } else {
